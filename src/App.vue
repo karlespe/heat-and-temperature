@@ -5,11 +5,11 @@
       <label class="label">Input temperature</label>
       <div class="field has-addons">
         <div class="control">
-          <input class="input" type="text" placeholder="Input temperature" @click="hideResult" @focus="hideResult" v-model="inputValue">
+          <input class="input" id="inputValue" type="text" placeholder="Input temperature" @click="hideResult" @focus="hideResult" v-model="inputValue">
         </div>
         <div class="control">
         <span class="select">
-          <select @change="hideResult" v-model="inputUnit">
+          <select @change="hideResult" v-model="inputUnit" id="inputUnit">
             <option v-for="option in unitOptions" v-bind:value="option.value">
               {{ option.text }}
             </option>
@@ -23,27 +23,27 @@
       <label class="label">Student response</label>
       <div class="field has-addons">
         <div class="control">
+          <input class="input" id="studentValue" type="text" placeholder="Student response" @click="hideResult" @focus="hideResult" v-model="studentValue">
+        </div>
+      </div>
+      <div class="control">
         <span class="select">
-          <select @click="hideResult" v-model="studentUnit">
+          <select @click="hideResult" v-model="studentUnit" id="studentUnit">
             <option v-for="option in unitOptions" v-bind:value="option.value">
               {{ option.text }}
             </option>
           </select>
         </span>
-        </div>
-        <div class="control">
-          <input class="input" type="text" placeholder="Student response" @click="hideResult" @focus="hideResult" v-model="studentValue">
-        </div>
       </div>
     </div>
 
     <div class="field is-grouped">
       <div class="control">
-        <button class="button is-link" @click="computeResult">Check</button>
+        <button class="button is-link" @click="computeResult" id="button">Check</button>
       </div>
     </div>
     <div>
-      <p class="title is-2" v-show="displayResult">{{ result }}</p>
+      <p class="title is-2" v-show="displayResult" id="result">{{ result }}</p>
     </div>
 
   </div>
@@ -95,7 +95,6 @@ export default {
 
         } else {
 
-          console.log("answer: " + answer);
           var authoritativeAnswer = MathUtil.round(answer, 0);
           var studentAnswer = MathUtil.round(this.studentValue, 0);
           this.result = authoritativeAnswer == studentAnswer ? this.LABEL_CORRECT : this.LABEL_INCORRECT;
