@@ -5,5 +5,5 @@ phases:
       - npm install
       - npm run test
       - npm run build
-      - aws s3 sync index.html s3://karlespe-flexion-web
-      - aws s3 sync dist/ s3://karlespe-flexion-web/dist
+      - aws s3 cp index.html s3://karlespe-flexion-web/
+      - aws s3 cp dist/temperature.min.js s3://karlespe-flexion-web/dist/
