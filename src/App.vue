@@ -25,8 +25,7 @@
         <div class="control">
           <input class="input" id="studentValue" type="text" placeholder="Student response" @click="hideResult" @focus="hideResult" v-model="studentValue">
         </div>
-      </div>
-      <div class="control">
+        <div class="control">
         <span class="select">
           <select @click="hideResult" v-model="studentUnit" id="studentUnit">
             <option v-for="option in unitOptions" v-bind:value="option.value">
@@ -34,6 +33,7 @@
             </option>
           </select>
         </span>
+        </div>
       </div>
     </div>
 
